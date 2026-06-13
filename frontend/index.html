@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Student Dairy</title>
+    
+#css
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+
+    body{
+        background-color: black;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        height: 100vh
+    }
+
+    .container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 12px;
+        width: 380px;
+    }
+
+    h1 {
+        color: #0F6E56;
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    p {
+        color: #888;
+        margin-bottom: 24px;
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #1D9E75;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+</style>
+
+    
+</head>
+
+<body>
+    <div class="container">
+      <h1>Student Dairy</h1>
+      <p>Track your daily learning goals</p>
+
+      <h1>Login</h1>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="password">
+      <button>Login</button>
+   </div>
+
+#javascript
+
+<script>
+    document.querySelector("button").addEventListener('click',async () => {
+        const username = document.querySelectorAll('input')[0].value;
+        const password = document.querySelectorAll('input')[1].value;
+
+        const response = await fetch('http://127.0.0.1:8000/api/login/',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+
+            },
+            body: JSON.stringify({username , password})
+        });
+        
+        const data = await response.json();
+
+        if (data.access) {
+            localStorage.setItem('token', data.access);
+            alert('Login Sucessfull');
+
+        } else {
+            alert('Wronge username or password');
+        }
+    });    
+
+</script>
+
+</body>
+</html>
