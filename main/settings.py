@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
-ALLOW_HOSTS = ['*']
+
 
 # active user model
 
@@ -146,7 +146,7 @@ SIMPLE_JWT = {
 
 }
 
-CORS_ALLOWED_ORIGINS = True
+CORS_ALLOWED_ALL_ORIGINS = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
