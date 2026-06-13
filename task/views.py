@@ -23,7 +23,7 @@ class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TaskSerializer
 
     def get_queryset(self):
-        return Task.object.filter(user=self.request.user)
+        return Task.objects.filter(user=self.request.user)
 
 
 class progressView(APIView):

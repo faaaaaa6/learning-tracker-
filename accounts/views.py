@@ -1,5 +1,5 @@
 from rest_framework import generics
-#ready made view(generics)
+#ready made view(generics)handling the request(POST,GET)
 from rest_framework.permissions import AllowAny
 #allowany=anyone can hit this url-even without logging in.
 from .serializers import RegisterSerializer
